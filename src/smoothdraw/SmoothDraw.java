@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class SmoothDraw {
     public static CurveCalc crvinst = new Catmull(1000);
-    public static BezierCurve[] bzrcrvs = new BezierCurve[20];
+    public static CurveCalc[] bzrcrvs = new BezierCurve[20];
 	
     public static void genBzrCrvs() {
 	for(int i = 0; i < 20; i++) bzrcrvs[i] = new BezierCurve(1000, i);
