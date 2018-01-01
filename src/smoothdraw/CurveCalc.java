@@ -6,12 +6,13 @@ public abstract class CurveCalc {
 	 * the number of points used.
 	 */
 	public int degree;
-	
+
 	/**
 	 * Create the interpolation path using the specified interpolation method.
-	 * @param points Points used to calculate the path.
+	 * 
+	 * @param points
+	 *            Points used to calculate the path.
 	 * @return A new array of points that describe the interpolated path.
 	 */
 	abstract public Point[] createInterpolationPath(Point[] points);
 }
-

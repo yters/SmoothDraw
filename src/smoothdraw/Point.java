@@ -14,12 +14,18 @@ public class Point {
 	public double y;
 	public double r;
 
-	Point() {}
+	Point() {
+	}
+
 	/**
 	 * The constructor just populates the object fields.
-	 * @param aX X coordinate.
-	 * @param aY Y coordinate.
-	 * @param aR Radius of point.
+	 * 
+	 * @param aX
+	 *            X coordinate.
+	 * @param aY
+	 *            Y coordinate.
+	 * @param aR
+	 *            Radius of point.
 	 */
 	public Point(double aX, double aY, double aR) {
 		x = aX;
