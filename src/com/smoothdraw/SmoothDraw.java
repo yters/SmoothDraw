@@ -1,4 +1,4 @@
-package smoothdraw;
+package com.smoothdraw;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -44,7 +44,7 @@ public class SmoothDraw {
 	 * 
 	 * @param points
 	 *            Points used to calculate the interpolation path.
-	 * @return
+	 * @return Interpolated path.
 	 */
 	public static Point[] getCurve(Point[] points) {
 		return curveInstances.createInterpolationPath(points);
@@ -94,7 +94,7 @@ public class SmoothDraw {
 	}
 
 	/**
-	 * Interpolate path between point {@link a} and {@link b}.
+	 * Interpolate path between point a and b.
 	 * 
 	 * @param a
 	 *            Start of path.
@@ -115,7 +115,7 @@ public class SmoothDraw {
 		double x;
 		double y;
 		for (int i = 0; i < steps; i++) {
-			ti = trigonometricInterpolation(i, steps);
+			ti = spokeAngle(i, steps);
 			x = a.x + xStep * ti;
 			y = a.y + yStep * ti;
 			points.add(new Point(x, y, 1.0)); // NOTE Doesn't include b
@@ -129,10 +129,13 @@ public class SmoothDraw {
 	}
 
 	/**
-	 * Draw a curve between the points.
+	 * Calculate angle of selected spoke in circle given total number of spokes.
+	 * @param chosenSpoke Selected spoke.
+	 * @param totalSpokes Total number of spokes in circle.
+	 * @return Angle of spoke.
 	 */
-	public static double trigonometricInterpolation(double step, double steps) {
-		return Math.acos(1.0 - ((double) step / (double) steps) * 2.0) / Math.PI;
+	public static double spokeAngle(double chosenSpoke, double totalSpokes) {
+		return Math.acos(1.0 - ((double) chosenSpoke / (double) totalSpokes) * 2.0) / Math.PI;
 	}
 
 	/**
@@ -142,7 +145,7 @@ public class SmoothDraw {
 	 *            List of points for interpolation, stored as a stack.
 	 * @param threshold
 	 *            Stub variable so looks the same as {@link smoothDrawTest}.
-	 * @return
+	 * @return Interpolated path.
 	 */
 	public static Point[] smoothDraw(LinkedList<Point> stack, double threshold) {
 		return getCurve(stack.toArray(new Point[1]));
@@ -152,7 +155,7 @@ public class SmoothDraw {
 	 * Simple visual test of interpolation. Outputs an R script to draw the
 	 * path.
 	 * 
-	 * @param args
+	 * @param args Unused.
 	 */
 	public static void main(String[] args) {
 		LinkedList<Point> points = new LinkedList<Point>();

@@ -1,4 +1,4 @@
-package smoothdraw;
+package com.smoothdraw;
 
 import java.util.Arrays;
 
@@ -18,7 +18,7 @@ public class Catmull extends CurveCalc {
 	/**
 	 * Precompute the coefficients of the Catmull-Rom spline.
 	 * 
-	 * @param aSteps
+	 * @param aSteps Granularity of interpolation.
 	 */
 	public Catmull(int aSteps) {
 		steps = aSteps;

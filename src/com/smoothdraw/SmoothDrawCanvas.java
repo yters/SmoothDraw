@@ -1,17 +1,14 @@
-package smoothdrawtest;
+package com.smoothdraw;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.*;
+
 import java.util.LinkedList;
 
-import smoothdraw.Point;
-import smoothdraw.SmoothDraw;
-
 /**
- * Provides a drawing canvas to experiment with various interpolation methods to
- * find out which one looks the most natural.
+ * Provides a drawing canvas to experiment with various interpolation methods.
  * 
  * @author yters
  *

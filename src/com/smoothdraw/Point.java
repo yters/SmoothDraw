@@ -1,4 +1,4 @@
-package smoothdraw;
+package com.smoothdraw;
 
 /**
  * Simple class to contain coordinate points. It is used for both the
@@ -10,8 +10,17 @@ package smoothdraw;
  */
 
 public class Point {
+	/**
+	 * X coordinate.
+	 */
 	public double x;
+	/**
+	 * Y coordinate.
+	 */
 	public double y;
+	/**
+	 * Point radius.  Only used for calculated interpolation path.
+	 */
 	public double r;
 
 	Point() {

@@ -1,4 +1,4 @@
-package smoothdraw;
+package com.smoothdraw;
 
 import java.util.Arrays;
 

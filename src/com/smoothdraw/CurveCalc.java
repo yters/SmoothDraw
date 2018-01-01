@@ -1,4 +1,9 @@
-package smoothdraw;
+package com.smoothdraw;
+/**
+ * Abstract class to interface with various interpolation methods.
+ * @author yters
+ *
+ */
 
 public abstract class CurveCalc {
 	/**
