@@ -97,9 +97,10 @@ public class SmoothDraw {
 	/**
 	 * Helper function for the visual test in {@link main}.
 	 * @param stack List of points for interpolation, stored as a stack.
+	 * @param threshold Stub variable so looks the same as {@link smoothDrawTest}.
 	 * @return
 	 */
-	public static Point[] smoothDraw(LinkedList<Point> stack) {
+	public static Point[] smoothDraw(LinkedList<Point> stack, double threshold) {
 		return getCurve(stack.toArray(new Point[1]));
 	}
 
@@ -116,7 +117,7 @@ public class SmoothDraw {
 		points.push(new Point(1.0, 1.3, 1.0));
 		points.push(new Point(1.2, 1.3, 1.0));
 
-		Point[] curvePoints = smoothDraw(points);
+		Point[] curvePoints = smoothDraw(points, 0.2);
 
 		int i;
 
