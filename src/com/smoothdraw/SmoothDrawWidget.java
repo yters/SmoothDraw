@@ -43,7 +43,9 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 	 * @param height Height of canvas.
 	 */
 	public SmoothDrawWidget(int width, int height) {
-		smoothDraw = new Catmull(1000); // Can also be BezierCurve(1000, 4).
+		// Can also be BezierCurve(1000, 4) or Line().
+		// Compare the difference between Line and the interpolation methods.
+		smoothDraw = new Catmull(1000);
 
 		setSize(width, height);
 
