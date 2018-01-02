@@ -37,16 +37,6 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 	 */
 	LinkedList<Point> points = new LinkedList<Point>();
 
-    /**
-     * Counter to determine if it is time to sample a point from mouse drag path.
-     */
-    int count = 0;
-    
-    /**
-     * The number of drag events to wait before sampling a point from the drag path.
-     */
-	int countThreshold = 2;
-
 	/**
 	 * Initialize a canvas and the interpolation method.
 	 * @param width Width of canvas.
@@ -77,12 +67,10 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 		int x = e.getX();
 		int y = e.getY();
 
-		if(count == countThreshold) {
-			count = 0;
-			points.push(new Point(x, y));
-			if (points.size() > smoothDraw.degree) points.removeLast();
-		} else {
-			count++;
+		points.push(new Point(x, y));
+		
+		if (points.size() > smoothDraw.degree) {
+			points.removeLast();
 		}
 
 		if(points.size() == smoothDraw.degree) {
