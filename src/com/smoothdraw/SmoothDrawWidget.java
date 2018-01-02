@@ -62,8 +62,7 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 	/**
 	 * As the mouse is dragged, points from the drag path are added to the
 	 * interpolation points. The number of points to trigger an interpolation is
-	 * set by the degree of the interpolation method, and the frequency of sampling points from
-	 * the mouse drag path is set by {@link countThreshold}.
+	 * set by the degree of the interpolation method.
 	 */
 	public void mouseDragged(MouseEvent e) {
 		int x = e.getX();
