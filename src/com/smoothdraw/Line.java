@@ -1,10 +1,14 @@
 package com.smoothdraw;
 
-/*
- * Draws a line between two points without interpolation.
- */
-
 import static java.lang.Math.sqrt;
+
+/**
+ * 
+ * Draws a line between two points using interpolation.
+ * 
+ * @author Eric Holloway
+ * 
+ */
 
 public class Line extends CurveCalc {
 
@@ -18,6 +22,10 @@ public class Line extends CurveCalc {
 		spacing = 2;
 	}
 
+	/**
+	 * This is a simple interpolation between two points, which produces a line.
+	 *
+	 */
 	@Override
 	public Point[] createInterpolationPath(Point[] points) {
 		Point s = points[0];

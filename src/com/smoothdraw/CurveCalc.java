@@ -25,7 +25,11 @@ public abstract class CurveCalc {
 	abstract public Point[] createInterpolationPath(Point[] points);
 	
 	/**
-	 * Handle input for {@createInterpolationPath(Path[] points)} as LinkedList.
+	 * Handle input as LinkedList.
+	 * 
+	 * @param stack Points for interpolation stored as a LinkedList stack.
+	 * 
+	 * @return The interpolation path.
 	 */
 	public Point[] createInterpolationPath(LinkedList<Point> stack) {
 		return createInterpolationPath(stack.toArray(new Point[1]));
