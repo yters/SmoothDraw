@@ -12,7 +12,7 @@ import java.util.LinkedList;
  * experimental method to allow greater control over the interpolated path
  * appearance.
  * 
- * @author yters
+ * @author Eric Holloway
  *
  */
 
@@ -77,8 +77,9 @@ public class SmoothDraw {
 		// Default to a Bezier curve if the number of received interpolation
 		// points does not match the requirement of the current interpolation
 		// method.
-		if (stack.size() != curveInstances.degree)
+		if (stack.size() != curveInstances.degree) {
 			curveInstances = bezierCurves[stack.size()];
+		}
 
 		// NOTE Draw Bezier curves between all points
 		Point[] interpolationPointArray = interpolationPoints.toArray(new Point[0]);

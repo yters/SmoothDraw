@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * Precomputes the coefficients for a Bezier curve of specified degree and granularity.
- * @author yters
+ * @author Eric Holloway
  *
  */
 public class BezierCurve extends CurveCalc {

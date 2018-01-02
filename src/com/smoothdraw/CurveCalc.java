@@ -1,7 +1,7 @@
 package com.smoothdraw;
 /**
  * Abstract class to interface with various interpolation methods.
- * @author yters
+ * @author Eric Holloway
  *
  */
 

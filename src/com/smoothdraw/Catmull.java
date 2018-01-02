@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Interpolation using the Catmull-Rom spline using a cubic polynomial.
  * 
- * @author yters
+ * @author Eric Holloway
  *
  */
 

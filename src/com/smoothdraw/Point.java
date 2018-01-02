@@ -5,7 +5,7 @@ package com.smoothdraw;
  * interpolation points and to store the interpolated path. {@link r} is only
  * used in the latter case, to set the line width.
  * 
- * @author yters
+ * @author Eric Holloway
  *
  */
 
