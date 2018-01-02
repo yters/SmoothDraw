@@ -27,17 +27,24 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 	 */
 	Graphics backGraphics;
 
-	/**
-	 * Interpolation points collected from user to draw the Bezier curve.
+	/** 
+	 * Holds the curve calculation algorithm.
 	 */
-	LinkedList<Point> points = new LinkedList<Point>();
+	CurveCalc smoothDraw;
 	
 	/**
-	 * Number of interpolation points held in {@link points} which is set by the interpolation method in {@link SmoothDraw}. 
+	 * Interpolation points collected from user to draw the curve.
 	 */
-    int pointThreshold = 0;
+	LinkedList<Point> points = new LinkedList<Point>();
 
+    /**
+     * Counter to determine if it is time to sample a point from mouse drag path.
+     */
     int count = 0;
+    
+    /**
+     * The number of drag events to wait before sampling a point from the drag path.
+     */
 	int countThreshold = 2;
 
 	/**
@@ -46,8 +53,7 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 	 * @param height Height of canvas.
 	 */
 	public SmoothDrawWidget(int width, int height) {
-		SmoothDraw.generateBezierCurves(20);
-		pointThreshold = SmoothDraw.curveInstances.degree;
+		smoothDraw = new Catmull(1000); // Can also be BezierCurve(1000, 4).
 
 		setSize(width, height);
 
@@ -64,7 +70,7 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 	/**
 	 * As the mouse is dragged, points from the drag path are added to the
 	 * interpolation points. The number of points to trigger an interpolation is
-	 * set by {@link pointThreshold}, and the frequency of sampling points from
+	 * set by the degree of the interpolation method, and the frequency of sampling points from
 	 * the mouse drag path is set by {@link countThreshold}.
 	 */
 	public void mouseDragged(MouseEvent e) {
@@ -72,18 +78,16 @@ public class SmoothDrawWidget extends Canvas implements MouseMotionListener, Mou
 		int y = e.getY();
 
 		if(count == countThreshold) {
-			points.push(new Point(x, y, 8.0));
-			while(points.size() > pointThreshold) points.removeLast();
 			count = 0;
+			points.push(new Point(x, y));
+			if (points.size() > smoothDraw.degree) points.removeLast();
 		} else {
 			count++;
 		}
 
-		if(points.size() == pointThreshold) {
-			Point[] curvePoints = SmoothDraw.smoothDraw(points, 40.0); 
+		if(points.size() == smoothDraw.degree) {
+			Point[] curvePoints = smoothDraw.createInterpolationPath(points); 
 			drawCurve(curvePoints, 4);
-		} else {
-			backGraphics.fillOval(x-1,y-1,0,0);
 		}
 
 		repaint();

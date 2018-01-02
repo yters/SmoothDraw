@@ -41,18 +41,15 @@ public class Catmull extends CurveCalc {
 	/**
 	 * Calculate the interpolation path of the Catmull-Rom spline.
 	 */
-	public Point[] createInterpolationPath(Point[] pnts) {
-		Point[] crvpnts = new Point[steps];
+	public Point[] createInterpolationPath(Point[] points) {
+		Point[] curvePoints = new Point[steps];
 		for (int i = 0; i < steps; i++) {
-			crvpnts[i] = new Point();
-			crvpnts[i].x = 0.0;
-			crvpnts[i].y = 0.0;
-
+			curvePoints[i] = new Point();
 			for (int j = 0; j < degree; j++) {
-				crvpnts[i].x += pnts[j].x * coefficients[i][j];
-				crvpnts[i].y += pnts[j].y * coefficients[i][j];
+				curvePoints[i].x += points[j].x * coefficients[i][j];
+				curvePoints[i].y += points[j].y * coefficients[i][j];
 			}
 		}
-		return Arrays.copyOfRange(crvpnts, 0, crvpnts.length);
+		return Arrays.copyOfRange(curvePoints, 0, curvePoints.length);
 	}
 }

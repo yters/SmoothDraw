@@ -2,8 +2,7 @@ package com.smoothdraw;
 
 /**
  * Simple class to contain coordinate points. It is used for both the
- * interpolation points and to store the interpolated path. {@link r} is only
- * used in the latter case, to set the line width.
+ * interpolation points and to store the interpolated path.
  * 
  * @author Eric Holloway
  *
@@ -18,12 +17,10 @@ public class Point {
 	 * Y coordinate.
 	 */
 	public double y;
-	/**
-	 * Point radius.  Only used for calculated interpolation path.
-	 */
-	public double r;
 
 	Point() {
+		x = 0.0;
+		y = 0.0;
 	}
 
 	/**
@@ -33,12 +30,9 @@ public class Point {
 	 *            X coordinate.
 	 * @param aY
 	 *            Y coordinate.
-	 * @param aR
-	 *            Radius of point.
 	 */
-	public Point(double aX, double aY, double aR) {
+	public Point(double aX, double aY) {
 		x = aX;
 		y = aY;
-		r = aR;
 	}
 }
